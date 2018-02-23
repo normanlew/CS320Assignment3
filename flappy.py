@@ -8,7 +8,7 @@
 
 # The template for this code was taken from: 
 # https://pythonprogramming.net/game-development-tutorials/
-# A step by step tutorial is provided by that website to get started with a Python game using pygame
+# A step by step tutorial is provided by this website to get started with a Python game using pygame
 
 import pygame
 import time
@@ -16,7 +16,7 @@ import random
 
 pygame.init()
 
-display_width = 450
+display_width = 500
 display_height = 400
 
 black = (0,0,0)
@@ -80,11 +80,11 @@ def game_loop():
 
 
     # This is the second set of pipes.
-    pipe_x3 = display_width + 253
+    pipe_x3 = display_width + 275
     pipe_y3 = random.randrange(115, display_height)
     pipe_height3 = display_height - pipe_y3
 
-    pipe_x4 = display_width + 253
+    pipe_x4 = display_width + 275
     pipe_y4 = 0
     pipe_height4 = pipe_y3 - 100
 
@@ -142,15 +142,16 @@ def game_loop():
 
         
         # Update the location of the pipes and the bird
+        pipe_x -= pipe_speed
         pipe(pipe_x, pipe_y, pipe_width, pipe_height, green)
-        pipe_x -=   pipe_speed
-        pipe(pipe_x2, pipe_y2, pipe_width, pipe_height2, green)
         pipe_x2 -= pipe_speed
+        pipe(pipe_x2, pipe_y2, pipe_width, pipe_height2, green)
+        
 
-        pipe(pipe_x3, pipe_y3, pipe_width, pipe_height3, green)
         pipe_x3 -=   pipe_speed
-        pipe(pipe_x4, pipe_y4, pipe_width, pipe_height4, green)
+        pipe(pipe_x3, pipe_y3, pipe_width, pipe_height3, green)
         pipe_x4 -= pipe_speed
+        pipe(pipe_x4, pipe_y4, pipe_width, pipe_height4, green)
         
         bird(x_bird,y_bird)
 
